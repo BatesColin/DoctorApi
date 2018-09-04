@@ -3,7 +3,10 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
+function results(response){
+  if (response.statusCode!== 200){
+    alert("statusCode="+response.statusCode)
+  }else{
 for(let i = 0; i < response.data.length; i++){
   $("#doctor-list").append(
     `<li>
@@ -56,10 +59,10 @@ for(let i = 0; i < response.data.length; i++){
 }
 $(".accept-true").text("This location is accepting new patients.");
 $(".accept-false").text("This location is currently not accepting new patients.");
-
-
-function error(){
-  $('#errors').text("There was an error processing your request. Please try again.");
+}
+}
+function error(message){
+  $('#errors').text("There was an error processing your request. " + message);
 }
 
 $(document).ready(function(){

@@ -9,8 +9,8 @@ export class Doctor{
         user_key=${process.env.exports.apiKey}`)
         .then(function(response){
           result(response);
-        }).fail(function(){
-          error();
+        }).fail(function(message){
+          error(message);
         });
       };
   }
